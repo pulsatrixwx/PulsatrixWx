@@ -7,6 +7,8 @@
 # Modified:  [not yet]
 ###############################################################################
 import os
+
+import util.util as util
 ###############################################################################
 # Specify the product title
 ###############################################################################
@@ -21,6 +23,7 @@ product_title = "HootPy NAM"
 ###############################################################################
 
 image_file_name = os.environ['HOME'] + "/hootpy/images/nam_tropo_f%(plot_time)03d.png"
+util.tryCreate(os.path.dirname(image_file_name))
 image_size_x = 1000
 image_size_y = 600
 

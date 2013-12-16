@@ -2,6 +2,7 @@
 from datetime import datetime
 import time
 import sys
+import os
 
 #from callCount import FunctionCallCount
 
@@ -85,3 +86,19 @@ def fatalError(message):
     print
     print "Error: %s" % message
     sys.exit()
+
+def tryCreate(path):
+    """
+    tryCreate()
+    Purpose:    Creates a directory if one does not exist already
+    Parameters: path [type=string]
+                    The path to Schroedinger's folder
+    Returns:    [nothing]
+    """
+    try:
+        os.stat(path)
+    except:
+        os.makedirs(path)
+
+    print("Creating folder: " + path)
+    return
