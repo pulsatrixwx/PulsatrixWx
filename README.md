@@ -6,4 +6,10 @@ PulsatrixWx produces professional-quality weather graphics in large batches with
 Requirements
 ============
 
-PulsatrixWx requires a recent version of Python 2 (Python 2.7 preferred). The following libraries are required: Matplotlib, Numpy, and Scipy. For reading netCDF files, netCDF4-python or PyNIO is encouraged, and PyNIO is required for reading grib files. PulsatrixWx works directly with the Anaconda or Enthought Python distributions.
+PulsatrixWx requires a recent version of Python 2 (Python 2.7 preferred). The following libraries are required: Matplotlib, Numpy, Scipy, Basemap, and pyproj. For reading netCDF files, netCDF4-python or PyNIO is encouraged, and PyNIO is required for reading grib files. PulsatrixWx works directly with the Anaconda or Enthought Python distributions.
+
+Running
+=======
+
+To plot an example set of maps, run the following command from the top level directory:
+  `python plot_map.py --config default/nomads_nam.hp`
