@@ -1,7 +1,7 @@
 ###############################################################################
 # Meta configuration file for HootPy
 ###############################################################################
-from os import environ
+import os
 
 data_src_map = {
     'WRF': {
@@ -693,5 +693,5 @@ unit_map = {
 
 product_time_format = "%a %d %b %Y %H%M UTC"
 
-_install_base = environ['HOME'] + "/hootpy/"
+_install_base = os.path.abspath('.') + "/"
 config_base = "%sconfig/" % _install_base

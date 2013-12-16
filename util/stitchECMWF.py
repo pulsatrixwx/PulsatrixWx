@@ -9,7 +9,7 @@ from dataLibECMWF import findUrlsECMWF, stitchECMWF
 
 print('Stitching')
 
-data_dir=os.environ["HOME"] + "/hootpy/data"
+data_dir=os.path.abspath('.') + '/data'
 model_date = "20131112_0000"
 #model_date = getCurrentModelDate(model,"%Y%m%d_%H%M")
 

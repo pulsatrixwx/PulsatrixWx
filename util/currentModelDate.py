@@ -9,7 +9,7 @@ def getCurrentModelDate(model,time_format='%Y%m%d_%H:%M:%S'):
                     time_format:  (String) datetime strftime format 
     """
     model = model.upper()
-    model_date_file = open(os.environ['HOME'] + '/hootpy/util/modelDates.hp')
+    model_date_file = open(os.path.abspath('.') + '/util/modelDates.hp')
     exec(model_date_file.read())
     curr_time = datetime.utcnow() - timedelta(minutes=modelDateInfo[model]['offset'])
     model_hours = np.arange(modelDateInfo[model]['start'],24,24/modelDateInfo[model]['runs'])

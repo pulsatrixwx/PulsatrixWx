@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model',default='NAM',
         help="Model being downloaded from Motherlode")
-    parser.add_argument('--dir', default = os.environ["HOME"] + '/hootpy/data',
+    parser.add_argument('--dir', default = os.path.abspath('.') + '/data',
         help="Directory where model file is to be downloaded")
     parser.add_argument('--max',default=4,type=int,
         help="Number of model files to keep in data directory.  Oldest will be deleted if the specified number is exceeded")
@@ -49,7 +49,7 @@ def removeOldModelRuns(model,data_dir,max_files):
             subprocess.call(["rm",model_files[i]])
     return
 
-def downloadModel(model,data_dir=os.environ["HOME"] + "/hootpy/data"):
+def downloadModel(model,data_dir=os.path.abspath('.') + "/data"):
     """downloadModel()
         Purpose:  Given a model type, download the latest grib file from 
         motherlode.ucar.edu

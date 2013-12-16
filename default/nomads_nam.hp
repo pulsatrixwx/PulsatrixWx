@@ -1,17 +1,19 @@
 ###############################################################################
-# Default configuration file for hootpy.
+# nomads_nam.hp - Loads a NAM run from the NOMADS server and plots the 
+# tropopause potential temperature.
 # This file should be valid Python, as the script will interpret it as such.
 #
-# Started:   25 July 2010 by Tim Supinie (tsupinie@ou.edu)
+# Started:   16 December 2013 by David John Gagne (djgagne@ou.edu)
 # Completed: [not yet]
 # Modified:  [not yet]
 ###############################################################################
 import os
+from datetime import datetime,timedelta
 ###############################################################################
 # Specify the product title
 ###############################################################################
 
-product_title = "HootPy NAM"
+product_title = "PulsatrixWx NAM"
 
 ###############################################################################
 # Specify image destination properties
@@ -20,7 +22,7 @@ product_title = "HootPy NAM"
 # image_size_y specifies the size of the image in the vertical in pixels.
 ###############################################################################
 
-image_file_name = os.environ['HOME'] + "/hootpy/images/nam_tropo_f%(plot_time)03d.png"
+image_file_name = os.path.abspath('.') + "/images/nam_tropo_f%(plot_time)03d.png"
 image_size_x = 1000
 image_size_y = 600
 
@@ -101,8 +103,8 @@ plot_time_units = "hr"
 #   information about how the vector fields should be plotted.  The file
 #   includes units, colors, and whether to plot vectors or barbs.
 ###############################################################################
-
-data_src = "http://nomads.ncep.noaa.gov:9090/dods/nam/nam20120210/nam_00z"
+run_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y%m%d")
+data_src = "http://nomads.ncep.noaa.gov:9090/dods/nam/nam" + run_date + "/nam_00z"
 data_scheme = "NOMADS_NAM_grid"
 base_time = data_src[-16:-8] + '-' + data_src[-3:-1]
 
