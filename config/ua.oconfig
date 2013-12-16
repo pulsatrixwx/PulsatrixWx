@@ -1,0 +1,15 @@
+# obs_config should be a file that contains information about how the station
+#   plot is laid out
+#
+
+units = {'T':'C', 'DD':'DC', 'GPH':'dam', 'vectorDecompose(WS, WD)':'kts'}
+
+colors = {'T':'r', 'DD':'g', 'GPH':'k', 'vectorDecompose(WS, WD)':'k', 'STN':'#808080'}
+
+location = {
+#   'STN':                      'BottomRight',
+    'DD':                       'BottomLeft',
+    'GPH':                      'TopRight',
+    'T':                        'TopLeft',
+    'vectorDecompose(WS, WD)':  'Center',
+}

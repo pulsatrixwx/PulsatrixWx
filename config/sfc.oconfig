@@ -1,0 +1,19 @@
+# obs_config should be a file that contains information about how the station
+#   plot is laid out
+#
+
+units = {'T':'F', 'DP':'F', 'vectorDecompose(WS, WD)':'kts', 'P':'hPa', 'maxCloudArea(SC)':None, 'WX':None}
+
+colors = {'T':'r', 'DP':'g', 'vectorDecompose(WS, WS)':'k', 'STN':'#808080', 'P':'b', 'maxCloudArea(SC)':'k', 'WX':'#cc00ff'}
+
+location = {
+#   'STN':                      'BottomRight',
+    'DP':                       'BottomLeft',
+    'T':                        'TopLeft',
+    'vectorDecompose(WS, WD)':  'Center',
+    'P':                        'TopRight',
+    'maxCloudArea(SC)':         'Center',
+    'WX':                       'Left',
+}
+
+abbreviate_pressure = True

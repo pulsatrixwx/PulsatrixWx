@@ -1,0 +1,11 @@
+# vector_config should be a file (in a specific directory?) that contains
+#   information about how the vector fields should be plotted.  The file
+#   includes units, colors, and whether to plot vectors or barbs.
+#
+
+units = "kts"
+type = "barb"
+
+vectors = [
+    { 'lower_bound':None, 'upper_bound':None, 'color':'#000000' }
+]

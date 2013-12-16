@@ -1,0 +1,161 @@
+###############################################################################
+# Default configuration file for hootpy.
+# This file should be valid Python, as the script will interpret it as such.
+#
+# Started:   25 July 2010 by Tim Supinie (tsupinie@ou.edu)
+# Completed: [not yet]
+# Modified:  [not yet]
+###############################################################################
+import os
+###############################################################################
+# Specify the product title
+###############################################################################
+
+product_title = "HootPy RUC"
+
+###############################################################################
+# Specify image destination properties
+# image_file_name specifies the location of the finished product.
+# image_size_x specifies the size of the image in the horizontal in pixels.
+# image_size_y specifies the size of the image in the vertical in pixels.
+###############################################################################
+
+image_file_name = os.environ['HOME'] + "/hootpy/images/ruc_f%(plot_time)03d.png"
+image_size_x = 1000
+image_size_y = 600
+
+###############################################################################
+# Specify the map coordinates (default is over Oklahoma)
+# map_n_lat specifies the northern boundary of the map in decimal degrees 
+#   (positive for the northern hemisphere, negative for the southern).
+# map_s_lat specifies the southern boundary of the map in decimal degrees
+#   (positive for the northern hempsphere, negative for the southern).
+# map_e_lon specifies the eastern boundary of the map in decimal degrees
+#   (positive for the eastern hemisphere, negative for the western).
+# map_w_lon specifies the western boundary of the map in decimal degrees
+#   (positive for the eastern hemisphere, negative for the western).
+###############################################################################
+
+map_projection = {
+    'projection':'lcc',
+    'll_corner_latitude':20.9,
+    'll_corner_longitude':-120.0,
+    'ur_corner_latitude':48.0,
+    'ur_corner_longitude':-60.0,
+
+    'center_latitude':34.95,
+    'center_longitude':-97.0,
+
+    'standard_latitude_1':30.0,
+    'standard_latitude_2':60.0,
+}
+
+###############################################################################
+# Specify the time frame for the product
+# forecast_hours specifies the forecast times for the product.  The value 
+#   should be of type list specify the numeric values for the forecast hours.  
+#   The exception is that for observed products, set this field to None.
+###############################################################################
+
+plot_times = []
+plot_times.extend(range(0, 15, 3))
+plot_time_units = "hr"
+
+###############################################################################
+# Specify the plotting configuration
+# The plotting configuration takes the form of either a Python dictionary or a 
+#   list of Python dictionaries for each data type.  Variables specified 
+#   outside the dictionary will take effect for all dictionaries.
+#
+# Specify grid_fn_contour as a list of dictionaries for contour plots of 
+#   gridded data.
+# Specify grid_fn_vector as a list of dictionaries for vector plots of gridded 
+#   data.
+# Specify grid_fn_fill as a single dictionary for fill plots of gridded data.
+# Specify obs_fn as a single dictionary for a plot of observed data.
+# Specify sat_fn as a single dictionary for a plot of satellite data.
+# Specify radar_fn as a single dictionary for a plot of radar data.
+#
+# Variables that can be specified are as follows:
+# data_src should point to the location of the data file to use when plotting.
+#
+# vertical_level should be the vertical level at which you wish to plot data.
+#   Value takes the form of "sfc" (for a surface plot) or a number with units 
+#  (hPa or mb for pressure and K for potential temperature).
+# 
+# plot_name should be the name of what you are trying to plot (this will show
+#   up in the title string of the finished product).
+#
+# function should be what you wish to plot.  The user will have the ability to
+#   specify custom plotting functions in the file if they wish.  
+#
+# line_config should be a file (in a specific directory?) that contains
+#   information about how the lines of a plot should be specified.  The file
+#   includes units, lower bound, upper bound, contour interval, line colors, 
+#   line styles, and line weights.
+#
+# fill_config should be a file (in a specific directory?) that contains
+#   information about how the plot should be filled.  The file includes units,
+#   lower bound, upper bound, fill interval, fill colors, and fill types.
+#
+# vector_config should be a file (in a specific directory?) that contains
+#   information about how the vector fields should be plotted.  The file
+#   includes units, colors, and whether to plot vectors or barbs.
+###############################################################################
+
+data_src = os.environ['HOME'] + "/hootpy/data/NCEP-RUC2-CONUS_20km-pressure_RUN_2011-01-10T18:00:00Z.nc"
+data_scheme = "UNIDATA_NCEP_grid"
+base_time = data_src[-23:-3]
+
+vertical_level = "850 hPa"
+
+grid_fn_contour = [ {
+    'plot_name':"Heights",
+    'function':"GP",
+    'element_config':"height.lconfig",
+    'master':True
+} ]
+
+grid_fn_vector = {
+    'plot_name':"Winds",
+    'function':"(U, V)",
+    'stride':10,
+    'element_config':"wind_barb.vconfig",
+}
+
+grid_fn_fill = {
+    'plot_name':"Wind Speed",
+    'function':"vectorMagnitude(U, V)",
+    'element_config':"500mb_wind_speed.fconfig",
+}
+
+#obs_fn = {
+#    'plot_name':"Observed Winds",
+#    'data_src':"/data/",
+#    'element_config':"ua.sconfig",
+#}
+#
+#sat_fn = {
+#    'plot_name':"Water Vapor",
+#    'data_src':"/data/",
+#    'function':"wvapor",
+#    'element_config':"water_vapor.fconfig",
+#}
+#
+#radar_fn = {
+#    'plot_name':"KTLX Base Reflectivity",
+#    'data_src':"/data/",
+#    'function':"ktlx_bref",
+#    'element_config':"bref.fconfig",
+#}
+
+###############################################################################
+# Specify the image rotation behavior (the number of images from previous runs 
+# 	of the script to keep around).  Example usage:
+#	A value of 0 overwrites the previous image generated by the script.
+#	A value of 1 keeps the image generated by the last run of the script.
+#	A value of 2 keeps the images generated by the last two runs of the script.
+#	etc ...
+###############################################################################
+
+image_rotation = 0

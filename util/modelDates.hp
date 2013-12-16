@@ -1,0 +1,9 @@
+# runs: number of runs, start: hour of first model run, offset:  minutes between run start and when run is available for download
+modelDateInfo = {
+    'NAM':{'runs':4,'start':0,'offset':180},
+    'SREF':{'runs':4,'start':3,'offset':290},
+    'GFS':{'runs':4,'start':0,'offset':280},
+    'RAP':{'runs':8,'start':0,'offset':70},
+    'ECMWF':{'runs':2, 'start':0, 'offset':420},
+    'RAP_ANALYSIS':{'runs':2, 'start':0, 'offset':70},
+}

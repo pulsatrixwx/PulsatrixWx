@@ -1,0 +1,10 @@
+# line_config should be a file (in a specific directory?) that contains
+#   information about how the lines of a plot should be specified.  The file
+#   includes units, lower bound, upper bound, contour interval, line colors, 
+#   line styles, and line weights.
+#
+units = "dam"
+
+lines = [
+    { 'lower_bound':None, 'upper_bound':None, 'contour_interval':3, 'line_color':'#000000', 'line_style':'-', 'line_weight':1.5 }
+]

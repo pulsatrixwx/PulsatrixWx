@@ -1,0 +1,24 @@
+# fill_config should be a file (in a specific directory?) that contains
+#   information about how the plot should be filled.  The file includes units,
+#   lower bound, upper bound, fill colors, and fill types.
+#
+
+units = "kts"
+
+fill = [
+    { 'lower_bound':None, 'upper_bound':20,   'color':'#ffffff' },
+    { 'lower_bound':20,   'upper_bound':25,   'color':'#b0aefe' },
+    { 'lower_bound':25,   'upper_bound':30,   'color':'#7d7dfe' },
+    { 'lower_bound':30,   'upper_bound':35,   'color':'#0032e1' },
+    { 'lower_bound':35,   'upper_bound':40,   'color':'#007daf' },
+    { 'lower_bound':40,   'upper_bound':45,   'color':'#00c896' },
+    { 'lower_bound':45,   'upper_bound':50,   'color':'#96e14b' },
+    { 'lower_bound':50,   'upper_bound':55,   'color':'#c8f529' },
+    { 'lower_bound':55,   'upper_bound':60,   'color':'#e1e100' },
+    { 'lower_bound':60,   'upper_bound':65,   'color':'#e1b400' },
+    { 'lower_bound':65,   'upper_bound':70,  'color':'#e18700' },
+    { 'lower_bound':70,  'upper_bound':75,  'color':'#ff8200' },
+    { 'lower_bound':75,  'upper_bound':80,  'color':'#fc3c03' },
+    { 'lower_bound':80,  'upper_bound':85,  'color':'#fc0000' },
+    { 'lower_bound':85,  'upper_bound':None, 'color':'#d00000' }
+]
