@@ -99,6 +99,5 @@ def tryCreate(path):
         os.stat(path)
     except:
         os.makedirs(path)
-
-    print("Creating folder: " + path)
+        print("Creating folder: " + path)
     return

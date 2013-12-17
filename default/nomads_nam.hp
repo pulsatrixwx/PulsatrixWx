@@ -7,6 +7,7 @@
 # Modified:  [not yet]
 ###############################################################################
 import os
+import datetime
 
 import util.util as util
 ###############################################################################
@@ -105,7 +106,13 @@ plot_time_units = "hr"
 #   includes units, colors, and whether to plot vectors or barbs.
 ###############################################################################
 
-data_src = "http://nomads.ncep.noaa.gov:9090/dods/nam/nam20120210/nam_00z"
+# Get two days ago for example for plot
+today = datetime.datetime.now()
+day_diff = datetime.timedelta(days=2)
+twodaysago = today - day_diff
+twodaysago_str = twodaysago.strftime('%Y%m%d')
+
+data_src = "http://nomads.ncep.noaa.gov:9090/dods/nam/nam{0}/nam_00z".format(twodaysago_str)
 data_scheme = "NOMADS_NAM_grid"
 base_time = data_src[-16:-8] + '-' + data_src[-3:-1]
 
